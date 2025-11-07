@@ -78,12 +78,12 @@ numeric = df[["AQI"] + [c for c in cols_pollutants if c in df.columns] +
              [c for c in ["Temperature (Celsius)", "Humidity (%)"] if c in df.columns]]
 corr = numeric.corr()
 
-plt.figure(figsize=(6,5))
+plt.figure(figsize=(8,6))  # increased width
 plt.imshow(corr, cmap="coolwarm", vmin=-1, vmax=1)
 plt.colorbar(label="Correlation")
-plt.xticks(range(len(corr.columns)), corr.columns, rotation=45)
+plt.xticks(range(len(corr.columns)), corr.columns, rotation=45, ha="right")
 plt.yticks(range(len(corr.columns)), corr.columns)
 plt.title("Correlation Heatmap")
 plt.tight_layout()
-
 plt.show()
+
