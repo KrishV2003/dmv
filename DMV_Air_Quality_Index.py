@@ -45,11 +45,11 @@ plt.tight_layout()
 plt.show()
 
 # 6. Bar plot: Daily average AQI
-daily = df.set_index("datetime").resample("D").agg({"AQI":"mean"}).dropna()
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(10,5))
 daily["AQI"].plot(kind="bar", width=0.8, color="steelblue")
 plt.title("Daily Average AQI")
 plt.ylabel("Average AQI")
+plt.xticks(ticks=range(0, len(daily), 10), labels=daily.index[::10].strftime("%Y-%m-%d"), rotation=45)
 plt.tight_layout()
 plt.show()
 
@@ -85,4 +85,5 @@ plt.xticks(range(len(corr.columns)), corr.columns, rotation=45)
 plt.yticks(range(len(corr.columns)), corr.columns)
 plt.title("Correlation Heatmap")
 plt.tight_layout()
+
 plt.show()
